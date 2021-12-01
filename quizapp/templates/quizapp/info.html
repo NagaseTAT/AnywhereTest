@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <table>
+      {% for i in val %}
+      <tr>
+        <tr>
+          <td><h1>Q.{{ i.id }}</h1></td>
+          <td>{{ i.title }}</td>
+        </tr>
+        <td>{{ i.text }}</td>
+        <td>{{ i.hint }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

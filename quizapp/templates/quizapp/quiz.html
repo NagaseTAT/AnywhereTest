@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ quiz_val.id }}</title>
+    <link rel="stylesheet" href="{% static "css/quiz_style.css" %}">
+  </head>
+  <body>
+    <header>
+      <div class="page_title">
+        <div class="title">
+          <h1>{{ quiz_val.title }}</h1>
+        </div>
+      </div>
+      <div class="header_menu">
+        <div class="header_navi">
+          <ul class="navi_container">
+            <li class="navi_link_container">
+                <a href="#" class="navi_link">
+                    <div class="navi_text">Top</div>
+                </a>
+            </li>
+            <li class="navi_link_container">
+                <a href="#" class="navi_link">
+                    <div class="navi_text">要素2</div>
+                </a>
+            </li>
+            <li class="navi_link_container">
+                <a href="#" class="navi_link">
+                    <div class="navi_text">要素3</div>
+                </a>
+            </li>
+            <li class="navi_link_container">
+                <a href="#" class="navi_link">
+                    <div class="navi_text">要素4</div>
+                </a>
+            </li>
+            <li class="navi_link_container">
+                <a href="#" class="navi_link">
+                    <div class="navi_text">要素5</div>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="body_container">
+        <div class="body">
+          <div class="quiz_title_container">
+            <h1 class="quiz_title">Q{{ id }}. {{ quiz_val.title }}</h1>
+          </div>
+          <hr>
+          <div class="quiz_text_container">
+            <p class="quiz_text">{{ quiz_val.text }}</p>
+          </div>
+          <hr>
+          <!-- <div class="hint_button_container">
+            <p class="hint_button">hint</p>
+          </div> -->
+          <div class="example">
+            <div class="example_1">
+              <div class="example_input">
+                <h3>入力例1</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.input1 }}</p>
+                </div>
+              </div>
+              <div class="example_output">
+                <h3>出力例1</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.output1 }}</p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="example_2">
+              <div class="example_input">
+                <h3>入力例2</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.input2 }}</p>
+                </div>
+              </div>
+              <div class="example_output">
+                <h3>出力例2</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.output2 }}</p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="example_3">
+              <div class="example_input">
+                <h3>入力例3</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.input3 }}</p>
+                </div>
+              </div>
+              <div class="example_output">
+                <h3>出力例3</h3>
+                <div class="example_box">
+                  <p>{{ quiz_val.output3 }}</p>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </main>
+
+<!--
+    <h1>Q{{ id }}. {{ quiz_val.title }} </h1>
+    <p>{{ quiz_val.text }}</p>
+    <p>{{ quiz_val.input1 }}</p>
+    <p>{{ quiz_val.output1 }}</p> -->
+
+    <form action="{% url 'quizapp:quiz' id %}" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="提出">
+    </form>
+  </body>
+</html>
